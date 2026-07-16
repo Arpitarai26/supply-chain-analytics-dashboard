@@ -1,87 +1,238 @@
 /* =====================================================
-   Business Performance Dashboard - Refined Dark Theme
-   ===================================================== */
+   styles_dark.css
+   Dark Theme
+===================================================== */
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #121212;
-    color: #e0e0e0;
-    font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
-}
+/* =====================================================
+   Body
+===================================================== */
+.dashboard-container.dark{
 
-/* ---- Headers ---- */
-h1, h2, h3 {
-    color: #ffffff;
-    font-weight: 600;
-}
-h1 {
-    font-size: 2.1rem;
-    text-align: center;
-    margin-bottom: 25px;
+    background:#0f172a;
+
+    color:#f8fafc;
+
 }
 
-/* ---- Dropdown ---- */
-.Select-control, .Select-menu-outer {
-    background-color: #1e1e1e !important;
-    color: #e0e0e0 !important;
-    border: 1px solid #333 !important;
-}
-.Select-placeholder, .Select-value-label {
-    color: #aaa !important;
-}
-.Select--multi .Select-value {
-    background-color: #2196f3 !important;
-    color: #fff !important;
-    border-radius: 5px;
+
+/* =====================================================
+   Dashboard
+===================================================== */
+
+.dashboard-container{
+
+    background:#0f172a;
+
 }
 
-/* ---- KPI Cards ---- */
-#kpi-cards > div {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    background: linear-gradient(145deg, #1b1b1b, #252525);
-    border: 1px solid #2a2a2a;
-    text-align: center;
-    color: #e0e0e0;
-}
-#kpi-cards > div:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
-}
-#kpi-cards h3 {
-    font-size: 1rem;
-    color: #b0b0b0;
-}
-#kpi-cards h2 {
-    font-size: 1.4rem;
-    font-weight: 700;
+
+/* =====================================================
+   Header
+===================================================== */
+
+.dashboard-container.dark .dashboard-title{
+
+    color:#f8fafc;
+
 }
 
-/* ---- Graph Containers ---- */
-.js-plotly-plot {
-    border-radius: 10px;
-    padding: 8px;
-    background-color: #181818 !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+.dashboard-container.dark .dashboard-subtitle{
+
+    color:#94a3b8;
+
 }
 
-/* ---- Scrollbar ---- */
-::-webkit-scrollbar {
-    width: 8px;
-    background-color: #121212;
-}
-::-webkit-scrollbar-thumb {
-    background-color: #333;
-    border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
+
+/* =====================================================
+   Filters
+===================================================== */
+
+.dashboard-container.dark .filters-container{
+
+    background:#1e293b;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.45);
+
 }
 
-/* ---- Footer ---- */
-.footer {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #aaa;
-    margin-top: 40px;
+.dashboard-container.dark .filter-label{
+
+    color:#f1f5f9;
+
+}
+
+
+/* =====================================================
+   Dropdowns
+===================================================== */
+
+.dashboard-container.dark .Select-control{
+
+    background:#334155 !important;
+
+    border-color:#475569 !important;
+
+    color:white !important;
+
+}
+
+.dashboard-container.dark .Select-menu-outer{
+
+    background:#334155 !important;
+
+}
+
+.dashboard-container.dark .Select-value-label{
+
+    color:white !important;
+
+}
+
+.dashboard-container.dark .Select-placeholder{
+
+    color:#cbd5e1 !important;
+
+}
+
+
+/* =====================================================
+   Date Picker
+===================================================== */
+
+.dashboard-container.dark .DateInput_input{
+
+    background:#334155;
+
+    color:white;
+
+    border:none;
+
+}
+
+.dashboard-container.dark .DateRangePickerInput{
+
+    background:#334155;
+
+    border:none;
+
+}
+
+
+/* =====================================================
+   KPI Cards
+===================================================== */
+
+.dashboard-container.dark .kpi-card{
+
+    background:#1e293b;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.45);
+
+}
+
+.dashboard-container.dark .kpi-title{
+
+    color:#94a3b8;
+
+}
+
+.dashboard-container.dark .kpi-value{
+
+    color:#ffffff;
+
+}
+
+.dashboard-container.dark .kpi-change{
+
+    color:#22c55e;
+
+}
+
+
+/* =====================================================
+   Sections
+===================================================== */
+
+.dashboard-container.dark .section-title{
+
+    color:white;
+
+}
+
+
+/* =====================================================
+   Chart Cards
+===================================================== */
+
+.dashboard-container.dark .chart-card{
+
+    background:#1e293b;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.45);
+
+}
+
+.dashboard-container.dark .chart-title{
+
+    color:white;
+
+}
+
+
+/* =====================================================
+   Insight Cards
+===================================================== */
+
+.dashboard-container.dark .insight-card{
+
+    background:#1e293b;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.45);
+
+}
+
+.dashboard-container.dark .insight-card h2{
+
+    color:white;
+
+}
+
+.dashboard-container.dark .insight-card h4{
+
+    color:#94a3b8;
+
+}
+
+.dashboard-container.dark .insight-card p{
+
+    color:#60a5fa;
+
+}
+
+
+/* =====================================================
+   Buttons
+===================================================== */
+
+.dashboard-container.dark .reset-button{
+
+    background:#2563eb;
+
+}
+
+.dashboard-container.dark .reset-button:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+/* =====================================================
+   Footer
+===================================================== */
+
+.dashboard-container.dark .dashboard-footer{
+
+    color:#94a3b8;
+
 }

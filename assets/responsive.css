@@ -1,0 +1,289 @@
+/* =====================================================
+   responsive.css
+   Responsive Layout
+===================================================== */
+
+
+/* =====================================================
+   Ultra Wide Screens
+===================================================== */
+
+@media screen and (min-width:1800px){
+
+    .dashboard-container{
+
+        max-width:1700px;
+
+    }
+
+}
+
+
+/* =====================================================
+   Desktop / Laptop
+===================================================== */
+
+@media screen and (max-width:1600px){
+
+    .dashboard-container{
+
+        max-width:1450px;
+
+        padding:24px;
+
+    }
+
+}
+
+
+/* =====================================================
+   Standard Laptop (1366px)
+===================================================== */
+
+@media screen and (max-width:1366px){
+
+    .dashboard-container{
+
+        max-width:1280px;
+
+        padding:20px;
+
+    }
+
+    .chart-card{
+
+        min-height:340px;
+
+    }
+
+    .kpi-container{
+
+        grid-template-columns:repeat(4,1fr);
+
+    }
+
+    .insight-grid{
+
+        grid-template-columns:repeat(4,1fr);
+
+    }
+
+}
+
+
+/* =====================================================
+   Tablet Landscape
+===================================================== */
+
+@media screen and (max-width:1200px){
+
+    .two-column-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .kpi-container{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+    .insight-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .filters-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .chart-card{
+
+        min-height:330px;
+
+    }
+
+}
+
+
+/* =====================================================
+   Tablet Portrait
+===================================================== */
+
+@media screen and (max-width:900px){
+
+    .dashboard-container{
+
+        padding:18px;
+
+    }
+
+    .dashboard-title{
+
+        font-size:34px;
+
+    }
+
+    .dashboard-subtitle{
+
+        font-size:16px;
+
+    }
+
+    .filters-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .kpi-container{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .insight-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .chart-card{
+
+        min-height:320px;
+
+    }
+
+}
+
+
+/* =====================================================
+   Mobile
+===================================================== */
+
+@media screen and (max-width:768px){
+
+    .dashboard-container{
+
+        padding:15px;
+
+    }
+
+    .dashboard-title{
+
+        font-size:28px;
+
+    }
+
+    .dashboard-subtitle{
+
+        font-size:15px;
+
+    }
+
+    .section-title{
+
+        font-size:22px;
+
+    }
+
+    .chart-title{
+
+        font-size:16px;
+
+    }
+
+    .two-column-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .kpi-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .insight-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .chart-card{
+
+        min-height:300px;
+
+        padding:15px;
+
+    }
+
+    .kpi-card{
+
+        padding:18px;
+
+    }
+
+}
+
+
+/* =====================================================
+   Small Mobile
+===================================================== */
+
+@media screen and (max-width:480px){
+
+    .dashboard-container{
+
+        padding:10px;
+
+    }
+
+    .dashboard-title{
+
+        font-size:24px;
+
+    }
+
+    .dashboard-subtitle{
+
+        font-size:14px;
+
+    }
+
+    .section-title{
+
+        font-size:20px;
+
+    }
+
+    .kpi-value{
+
+        font-size:26px;
+
+    }
+
+    .insight-value{
+
+        font-size:20px;
+
+    }
+
+    .chart-card{
+
+        min-height:280px;
+
+    }
+
+    .reset-button{
+
+        width:100%;
+
+    }
+
+}

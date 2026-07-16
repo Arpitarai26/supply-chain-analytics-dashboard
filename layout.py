@@ -1,62 +1,176 @@
 # -----------------------------------------------------
-# layout.py - defines dashboard layout & theme toggle
+# layout.py
+# Main Dashboard Layout
 # -----------------------------------------------------
+
 from dash import html, dcc
 
+from components.layout.header import header
+from components.layout.filters import filters
+from components.layout.kpis import kpi_section
+from components.layout.executive_section import executive_section
+from components.layout.customer_section import customer_section
+from components.layout.operations_section import operations_section
+from components.layout.insights_section import insights_section
+from components.layout.modal import analytics_modal
+
+
 def create_layout(df):
-    return html.Div([
-        html.H1("📊 Business Performance Dashboard", style={'textAlign': 'center'}),
+    """
+    Create the complete Supply Chain Analytics Dashboard layout.
+    """
 
-        html.Div([
-            html.Label("Toggle Theme:", style={'marginRight': '10px'}),
-            dcc.RadioItems(
-                id='theme-toggle',
-                options=[
-                    {'label': '🌙 Dark', 'value': 'dark'},
-                    {'label': '☀️ Light', 'value': 'light'}
+    return html.Div(
+
+        [
+
+            # =====================================================
+            # Theme Store
+            # =====================================================
+
+            dcc.Store(
+                id="theme-store",
+                data="dark",
+            ),
+
+            # =====================================================
+            # Header
+            # =====================================================
+
+            header(),
+
+            # =====================================================
+            # Filters
+            # =====================================================
+
+            filters(df),
+
+            # =====================================================
+            # KPI Cards
+            # =====================================================
+
+            kpi_section(),
+
+            # =====================================================
+            # Executive Analytics
+            # =====================================================
+
+            executive_section(),
+
+            # =====================================================
+            # Customer Analytics
+            # =====================================================
+
+            customer_section(),
+
+            # =====================================================
+            # Operations Analytics
+            # =====================================================
+
+            operations_section(),
+
+            # =====================================================
+            # Executive Insights
+            # =====================================================
+
+            insights_section(),
+
+            # =====================================================
+            # Analytics Modal
+            # =====================================================
+
+            analytics_modal(),
+
+            # =====================================================
+            # Footer
+            # =====================================================
+
+            html.Footer(
+
+                [
+
+                    html.Hr(),
+
+                    html.Div(
+
+                        [
+
+                            html.H3(
+
+                                "Supply Chain Analytics Dashboard",
+
+                                className="footer-title",
+
+                            ),
+
+                            html.P(
+
+                                "Business Intelligence Platform for Supply Chain Performance Analysis",
+
+                                className="footer-subtitle",
+
+                            ),
+
+                            html.Div(
+
+                                [
+
+                                    html.Span("Version 1.0.0"),
+
+                                    html.Span(" • "),
+
+                                    html.Span("Python"),
+
+                                    html.Span(" • "),
+
+                                    html.Span("Dash"),
+
+                                    html.Span(" • "),
+
+                                    html.Span("Plotly"),
+
+                                    html.Span(" • "),
+
+                                    html.Span("Pandas"),
+
+                                ],
+
+                                className="footer-tech",
+
+                            ),
+
+                            html.P(
+
+                                "Developed by Arpita Rai",
+
+                                className="footer-author",
+
+                            ),
+
+                            html.P(
+
+                                "© 2026 All Rights Reserved",
+
+                                className="footer-copyright",
+
+                            ),
+
+                        ],
+
+                        className="footer-content",
+
+                    ),
+
                 ],
-                value='dark',
-                labelStyle={'display': 'inline-block', 'marginRight': '15px'}
-            )
-        ], style={'textAlign': 'center', 'marginBottom': '20px'}),
 
-        html.Div([
-            html.Div([
-                html.Label("Select Customer"),
-                dcc.Dropdown(
-                    id='customer-dropdown',
-                    options=[{'label': c, 'value': c} for c in sorted(df["Customer"].unique())],
-                    multi=True, placeholder="Choose customers"
-                )
-            ], style={'width': '30%', 'display': 'inline-block', 'padding': '10px'}),
+                className="dashboard-footer",
 
-            html.Div([
-                html.Label("Select Location"),
-                dcc.Dropdown(
-                    id='location-dropdown',
-                    options=[{'label': l, 'value': l} for l in sorted(df["Location"].unique())],
-                    multi=True, placeholder="Choose locations"
-                )
-            ], style={'width': '30%', 'display': 'inline-block', 'padding': '10px'}),
+            ),
 
-            html.Div([
-                html.Label("Select Business Type"),
-                dcc.Dropdown(
-                    id='business-dropdown',
-                    options=[{'label': b, 'value': b} for b in sorted(df["BusinessType"].unique())],
-                    multi=True, placeholder="Choose business types"
-                )
-            ], style={'width': '30%', 'display': 'inline-block', 'padding': '10px'})
-        ]),
+        ],
 
-        html.Br(),
-        html.Div(id='kpi-cards', style={'display': 'flex', 'justifyContent': 'space-around', 'flexWrap': 'wrap'}),
-        html.Br(),
+        id="dashboard-container",
 
-        html.Div([
-            dcc.Graph(id='revenue-bar'),
-            dcc.Graph(id='order-trend'),
-            dcc.Graph(id='business-type-bar'),
-            dcc.Graph(id='us-map')
-        ], style={'padding': '20px'})
-    ])
+        className="dashboard-container dark",
+
+    )

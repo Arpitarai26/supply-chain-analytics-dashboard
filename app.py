@@ -1,40 +1,69 @@
-# =====================================================
-# app.py - Main Entry Point for Business Dashboard
-# =====================================================
+# -----------------------------------------------------
+# app.py
+# Supply Chain Analytics Dashboard
+# -----------------------------------------------------
+
 from dash import Dash
+
 from data_loader import load_data
 from layout import create_layout
 from callbacks import register_callbacks
-import os
 
-# -----------------------------------------------------
-# Initialize the Dash Application
-# -----------------------------------------------------
-app = Dash(
-    __name__,
-    suppress_callback_exceptions=True,
-    assets_folder=os.path.join(os.getcwd(), "assets")
-)
-app.title = "Business Performance Dashboard"
 
-# -----------------------------------------------------
-# Load Data
-# -----------------------------------------------------
-try:
-    df = load_data("supply_chain_deliveries.csv")
-except FileNotFoundError:
-    raise SystemExit("❌ Dataset 'supply_chain_deliveries.csv' not found.")
+def create_app():
+    """
+    Create and configure the Dash application.
+    """
 
-# -----------------------------------------------------
-# Set Layout and Register Callbacks
-# -----------------------------------------------------
-app.layout = create_layout(df)
-register_callbacks(app, df)
+    # ==========================================
+    # Load Dataset
+    # ==========================================
 
-# -----------------------------------------------------
-# Run Server
-# -----------------------------------------------------
+    df = load_data()
+
+    # ==========================================
+    # Create Dash App
+    # ==========================================
+
+    app = Dash(
+        __name__,
+        title="Supply Chain Analytics Dashboard",
+        suppress_callback_exceptions=True,
+    )
+
+    # Flask server
+    server = app.server
+
+    # ==========================================
+    # Layout
+    # ==========================================
+
+    app.layout = create_layout(df)
+
+    # ==========================================
+    # Register Callbacks
+    # ==========================================
+
+    register_callbacks(app, df)
+
+    return app, server
+
+
+# =====================================================
+# Create Application
+# =====================================================
+
+app, server = create_app()
+
+
+# =====================================================
+# Run
+# =====================================================
+
 if __name__ == "__main__":
-    print("\n🚀 Launching Business Performance Dashboard...")
-    print("Access it at: http://127.0.0.1:8051/\n")
-    app.run(debug=True, port=8051)
+
+    app.run(
+        debug=True,
+        host="127.0.0.1",
+        port=8051,
+    )
