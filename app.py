@@ -69,3 +69,30 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=int(os.environ.get("PORT", 8051)),
     )
+
+def create_app():
+
+    print("STEP 1: Loading data...")
+    df = load_data()
+    print("STEP 1 COMPLETE")
+
+    print("STEP 2: Creating Dash app...")
+    app = Dash(
+        __name__,
+        title="Supply Chain Analytics Dashboard",
+        suppress_callback_exceptions=True,
+    )
+    server = app.server
+    print("STEP 2 COMPLETE")
+
+    print("STEP 3: Creating layout...")
+    app.layout = create_layout(df)
+    print("STEP 3 COMPLETE")
+
+    print("STEP 4: Registering callbacks...")
+    register_callbacks(app, df)
+    print("STEP 4 COMPLETE")
+
+    print("APP INITIALIZED SUCCESSFULLY")
+
+    return app, server
